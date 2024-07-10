@@ -18,7 +18,7 @@ public class Formateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String nom;
     private String prenom;
@@ -41,7 +41,7 @@ public class Formateur {
     public Formateur(){}
     
 
-    public Formateur(int id, String nom, String prenom, String telephone, String mail, String password,
+    public Formateur(Integer id, String nom, String prenom, String telephone, String mail, String password,
             Ordinateur ordinateur, List<Bloc> blocs, VideoProjecteur emprunt, Set<Competence> competences) {
         this.id = id;
         this.nom = nom;
@@ -57,11 +57,11 @@ public class Formateur {
 
     
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

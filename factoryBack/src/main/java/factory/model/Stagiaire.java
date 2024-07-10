@@ -14,7 +14,7 @@ public class Stagiaire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nom;
     private String prenom;
     private String telephone;
@@ -29,7 +29,7 @@ public class Stagiaire {
 
     public Stagiaire(){}
 
-    public Stagiaire(int id, String nom, String prenom, String telephone, String mail, String password,
+    public Stagiaire(Integer id, String nom, String prenom, String telephone, String mail, String password,
             Ordinateur ordinateur, Formation formation) {
         this.id = id;
         this.nom = nom;
@@ -41,11 +41,11 @@ public class Stagiaire {
         this.formation = formation;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

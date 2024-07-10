@@ -6,4 +6,5 @@ import factory.model.Ordinateur;
 
 public interface IDAOOrdinateur extends JpaRepository<Ordinateur, Integer>{
 
+	public Ordinateur findByFormateur(Integer id);
 }

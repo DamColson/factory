@@ -13,7 +13,7 @@ public class Technicien {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nom;
     private String prenom;
     private String telephone;
@@ -25,7 +25,7 @@ public class Technicien {
 
     public Technicien(){}
 
-    public Technicien(int id, String nom, String prenom, String telephone, String mail, String password,
+    public Technicien(Integer id, String nom, String prenom, String telephone, String mail, String password,
             Ordinateur ordinateur) {
         this.id = id;
         this.nom = nom;
@@ -36,11 +36,11 @@ public class Technicien {
         this.ordinateur = ordinateur;
     }
     
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
