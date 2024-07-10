@@ -2,14 +2,33 @@ package factory.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotBlank;
+
+@Entity
+@Table(name = "bloc")
 public class Bloc {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank
 	private LocalDate dateDebut;
+	@NotBlank
 	private LocalDate dateFin;
+	@NotBlank
 	private String code;
+	@NotBlank
 	private String objectif;
+	@Transient
 	private Formateur formateur;
+	@Transient
 	private Matiere matiere;
+	@Transient
 	private Salle salle;
 
 	public Bloc() {
