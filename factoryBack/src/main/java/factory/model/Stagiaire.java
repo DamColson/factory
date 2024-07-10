@@ -21,6 +21,7 @@ public class Stagiaire {
     private String password;
     @Transient
     private Ordinateur ordinateur;
+    @Transient
     private Formation formation;
 
     public Stagiaire(){}
