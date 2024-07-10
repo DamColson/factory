@@ -1,13 +1,31 @@
 package factory.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotBlank;
+
+@Entity
+@Table(name = "technicien")
 public class Technicien {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank
     private String nom;
+    @NotBlank
     private String prenom;
+    @NotBlank
     private String telephone;
+    @NotBlank
     private String mail;
+    @NotBlank
     private String password;
+    @Transient
     private Ordinateur ordinateur;
 
     public Technicien(){}

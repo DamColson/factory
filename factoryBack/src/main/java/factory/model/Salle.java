@@ -2,11 +2,27 @@ package factory.model;
 
 import java.util.Set;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotBlank;
+
+@Entity
+@Table(name = "salle")
 public class Salle {
-	private String libelle;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank
+	private String libelle;
+	
 	private Integer superficie;
+	@Transient
 	private Set<Ordinateur> ordinateurs;
+	@Transient
 	private VideoProjecteur videoProjecteurs;
 	
 	public Salle() {
