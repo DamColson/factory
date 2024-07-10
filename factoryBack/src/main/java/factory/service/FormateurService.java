@@ -11,10 +11,8 @@ import factory.dao.IDAOCompetence;
 import factory.dao.IDAOFormateur;
 import factory.dao.IDAOOrdinateur;
 import factory.dao.IDAOVideoProjecteur;
-import factory.model.Bloc;
+import factory.model.Competence;
 import factory.model.Formateur;
-import factory.model.Ordinateur;
-import factory.model.VideoProjecteur;
 
 @Service
 public class FormateurService {
@@ -51,23 +49,17 @@ public class FormateurService {
 		return daoFormateur.save(formateur);
 	}
 	
-	public void deleteByID(Integer id) {
+	public void delete(Formateur formateur) {
 		
-		VideoProjecteur proj = daoVideoProjecteur.findByFormateur(id);
-		proj.setFormateur(null);
-		daoVideoProjecteur.save(proj);
 		
-		Ordinateur ordinateur = daoOrdinateur.findByFormateur(id);
-		ordinateur.setFormateur(null);
-		daoOrdinateur.save(ordinateur);
+		daoVideoProjecteur.cascadeNull(formateur);
+		daoOrdinateur.cascadeNull(formateur);
+		daoBloc.cascadeNull(formateur);
+		List<Competence> competences = daoCompetence.findByFormateurs(formateur);
+		competences = competences.stream().peek(competence->competence.getFormateurs().remove(formateur)).collect(Collectors.toList());
+		daoCompetence.saveAll(competences);
+		daoFormateur.delete(formateur);
 		
-		List<Bloc> blocs = daoBloc.findByFormateur(id);
-		Formateur formateur= new Formateur();
-		blocs = blocs.stream()
-				.peek(bloc->bloc.setFormateur(null))
-				.collect(Collectors.toList());
-		
-		blocs.stream().forEach(bloc->daoBloc.save(bloc));
 		
 		
 		// Trouver le videoprojecteur associé au formateur => select v from VideoProjecteur v 

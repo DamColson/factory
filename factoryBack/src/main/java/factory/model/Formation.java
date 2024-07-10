@@ -1,6 +1,7 @@
 package factory.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -104,6 +105,23 @@ public class Formation {
 
 	public void setGestionnaire(Gestionnaire gestionnaire) {
 		this.gestionnaire = gestionnaire;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Formation other = (Formation) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 	

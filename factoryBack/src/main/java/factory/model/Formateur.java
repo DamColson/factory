@@ -1,6 +1,7 @@
 package factory.model;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -136,6 +137,25 @@ public class Formateur {
     public void setCompetences(Set<Competence> competences) {
         this.competences = competences;
     }
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Formateur other = (Formateur) obj;
+		return Objects.equals(id, other.id);
+	}
 
     
 
