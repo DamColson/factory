@@ -3,11 +3,15 @@ package factory.model;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
+@Entity
+@Table(name = "formateur")
 public class Formateur {
 
     @Id
