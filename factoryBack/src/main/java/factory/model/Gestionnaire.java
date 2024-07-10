@@ -1,25 +1,43 @@
 package factory.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+
+
+@Entity
+@Table(name="gestionnaire")
 public class Gestionnaire {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nom;
+	
 	private String prenom;
-	private String telelphone;
+	
+	private String telephone;
+	
 	private String mail;
+	
 	private String password;
+	
+	@Transient
 	private Ordinateur ordinateur;
 	
 	public Gestionnaire() {
 	}
 
-	public Gestionnaire(Integer id, String nom, String prenom, String telelphone, String mail, String password,
+	public Gestionnaire(Integer id, String nom, String prenom, String telephone, String mail, String password,
 			Ordinateur ordinateur) {
-		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.telelphone = telelphone;
+		this.telephone = telephone;
 		this.mail = mail;
 		this.password = password;
 		this.ordinateur = ordinateur;
@@ -49,12 +67,12 @@ public class Gestionnaire {
 		this.prenom = prenom;
 	}
 
-	public String getTelelphone() {
-		return telelphone;
+	public String getTelephone() {
+		return telephone;
 	}
 
-	public void setTelelphone(String telelphone) {
-		this.telelphone = telelphone;
+	public void setTelephone(String telelphone) {
+		this.telephone = telelphone;
 	}
 
 	public String getMail() {

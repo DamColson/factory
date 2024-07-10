@@ -1,10 +1,23 @@
 package factory.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="compte")
 public class Compte {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String login;
+
 	private String password;
+	
 	private String role;
 	
 	public Compte() {
@@ -12,7 +25,6 @@ public class Compte {
 	}
 
 	public Compte(Integer id, String login, String password, String role) {
-		super();
 		this.id = id;
 		this.login = login;
 		this.password = password;
