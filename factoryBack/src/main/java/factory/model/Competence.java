@@ -30,6 +30,13 @@ public class Competence {
 		this.id = id;
 		this.nom = nom;
 	}
+	
+	public Competence(Integer id, String nom, Set<Matiere> matieres, Set<Formateur> formateurs) {
+		this.id = id;
+		this.nom = nom;
+		this.matieres = matieres;
+		this.formateurs = formateurs;
+	}
 
 	public Integer getId() {
 		return id;
@@ -46,5 +53,22 @@ public class Competence {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public Set<Matiere> getMatieres() {
+		return matieres;
+	}
+
+	public void setMatieres(Set<Matiere> matieres) {
+		this.matieres = matieres;
+	}
+
+	public Set<Formateur> getFormateurs() {
+		return formateurs;
+	}
+
+	public void setFormateurs(Set<Formateur> formateurs) {
+		this.formateurs = formateurs;
+	}
+	
 	
 }

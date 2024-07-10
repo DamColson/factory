@@ -42,6 +42,17 @@ public class Salle {
 		this.videoProjecteurs = videoProjecteurs;
 	}
 
+	public Salle(Integer id, String libelle, Integer superficie, Set<Ordinateur> ordinateurs, Set<Bloc> blocs,
+			VideoProjecteur videoProjecteurs) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+		this.superficie = superficie;
+		this.ordinateurs = ordinateurs;
+		this.blocs = blocs;
+		this.videoProjecteurs = videoProjecteurs;
+	}
+
 	public String getLibelle() {
 		return libelle;
 	}
@@ -80,6 +91,14 @@ public class Salle {
 
 	public void setVideoProjecteurs(VideoProjecteur videoProjecteurs) {
 		this.videoProjecteurs = videoProjecteurs;
+	}
+
+	public Set<Bloc> getBlocs() {
+		return blocs;
+	}
+
+	public void setBlocs(Set<Bloc> blocs) {
+		this.blocs = blocs;
 	}
 
 	

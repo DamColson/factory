@@ -38,6 +38,16 @@ public class Matiere {
 		this.competences = competences;
 	}
 
+	
+	
+	public Matiere(Integer id, String titre, String contenu, Set<Competence> competences, Set<Bloc> blocs) {
+		this.id = id;
+		this.titre = titre;
+		this.contenu = contenu;
+		this.competences = competences;
+		this.blocs = blocs;
+	}
+
 	public Integer getId() {
 		return id;
 	}

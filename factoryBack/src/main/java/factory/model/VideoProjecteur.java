@@ -41,6 +41,18 @@ public class VideoProjecteur {
 		this.status = status;
 		this.id = id;
 	}
+	
+	public VideoProjecteur(Integer id, String libelle, String adresseMac, String dateAchat, Salle emplacement,
+			Formateur formateur, String status) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+		this.adresseMac = adresseMac;
+		this.dateAchat = dateAchat;
+		this.emplacement = emplacement;
+		this.formateur = formateur;
+		this.status = status;
+	}
 
 	public String getLibelle() {
 		return libelle;
@@ -88,6 +100,22 @@ public class VideoProjecteur {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Salle getEmplacement() {
+		return emplacement;
+	}
+
+	public void setEmplacement(Salle emplacement) {
+		this.emplacement = emplacement;
+	}
+
+	public Formateur getFormateur() {
+		return formateur;
+	}
+
+	public void setFormateur(Formateur formateur) {
+		this.formateur = formateur;
 	}
 	
 	
