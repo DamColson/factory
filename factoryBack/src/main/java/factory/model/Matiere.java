@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -23,6 +24,9 @@ public class Matiere {
 	
 	@Transient
 	private Set<Competence> competences;
+	
+	@OneToMany(mappedBy="matiere")
+	private Set<Bloc> blocs;
 	
 	public Matiere() {
 	}
@@ -64,6 +68,14 @@ public class Matiere {
 
 	public void setCompetences(Set<Competence> competences) {
 		this.competences = competences;
+	}
+
+	public Set<Bloc> getBlocs() {
+		return blocs;
+	}
+
+	public void setBlocs(Set<Bloc> blocs) {
+		this.blocs = blocs;
 	}
 	
 	

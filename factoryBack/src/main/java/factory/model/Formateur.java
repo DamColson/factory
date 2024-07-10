@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -23,12 +25,16 @@ public class Formateur {
     private String telephone;
     private String mail;
     private String password;
-    @Transient
+    
+    @OneToOne(mappedBy = "formateur")
     private Ordinateur ordinateur;
-    @Transient
+    
+    @OneToMany(mappedBy="formateur")
     private List<Bloc> blocs;
-    @Transient
+    
+    @OneToOne(mappedBy="formateur")
     private VideoProjecteur emprunt;
+    
     @Transient
     private Set<Competence> competences;
 

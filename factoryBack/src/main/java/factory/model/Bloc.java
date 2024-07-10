@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -19,11 +20,14 @@ public class Bloc {
 	private LocalDate dateFin;
 	private String code;
 	private String objectif;
-	@Transient
+	
+	@ManyToOne
 	private Formateur formateur;
-	@Transient
+	
+	@ManyToOne
 	private Matiere matiere;
-	@Transient
+	
+	@ManyToOne
 	private Salle salle;
 
 	public Bloc() {

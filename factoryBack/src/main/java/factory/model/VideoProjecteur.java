@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -20,8 +21,11 @@ public class VideoProjecteur {
 	
 	private String dateAchat;
 	
-	@Transient
+	@OneToOne
 	private Salle emplacement;
+	
+	@OneToOne
+	private Formateur formateur;
 	
 	private String status;
 	

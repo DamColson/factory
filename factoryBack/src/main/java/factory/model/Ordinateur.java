@@ -4,8 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "ordinateur")
@@ -21,10 +22,22 @@ public class Ordinateur {
 
 	private String dateAchat;
 	
-	@Transient
+	@ManyToOne
 	private Salle emplacement;
 	
 	private String status;
+	
+	@OneToOne
+	private Formateur formateur;
+	
+	@OneToOne
+	private Stagiaire stagiaire;
+	
+	@OneToOne
+	private Gestionnaire gestionnaire;
+	
+	@OneToOne
+	private Technicien technicien;
 	
 	private String os;
 	
@@ -39,6 +52,24 @@ public class Ordinateur {
 		this.emplacement = emplacement;
 		this.status = status;
 		this.id = id;
+		this.os = os;
+	}
+
+	
+	
+	public Ordinateur(Integer id, String libelle, String adresseMac, String dateAchat, Salle emplacement, String status,
+			Formateur formateur, Stagiaire stagiaire, Gestionnaire gestionnaire, Technicien technicien, String os) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+		this.adresseMac = adresseMac;
+		this.dateAchat = dateAchat;
+		this.emplacement = emplacement;
+		this.status = status;
+		this.formateur = formateur;
+		this.stagiaire = stagiaire;
+		this.gestionnaire = gestionnaire;
+		this.technicien = technicien;
 		this.os = os;
 	}
 
@@ -96,6 +127,42 @@ public class Ordinateur {
 
 	public void setOs(String os) {
 		this.os = os;
+	}
+
+	public Formateur getFormateur() {
+		return formateur;
+	}
+
+	public void setFormateur(Formateur formateur) {
+		this.formateur = formateur;
+	}
+
+	public Stagiaire getStagiaire() {
+		return stagiaire;
+	}
+
+	public void setStagiaire(Stagiaire stagiaire) {
+		this.stagiaire = stagiaire;
+	}
+
+	public Gestionnaire getGestionnaire() {
+		return gestionnaire;
+	}
+
+	public void setGestionnaire(Gestionnaire gestionnaire) {
+		this.gestionnaire = gestionnaire;
+	}
+
+	public Technicien getTechnicien() {
+		return technicien;
+	}
+
+	public void setTechnicien(Technicien technicien) {
+		this.technicien = technicien;
+	}
+
+	public void setEmplacement(Salle emplacement) {
+		this.emplacement = emplacement;
 	}
 	
 	

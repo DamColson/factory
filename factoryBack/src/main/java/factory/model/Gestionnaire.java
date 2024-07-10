@@ -1,11 +1,14 @@
 package factory.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 
 @Entity
@@ -26,8 +29,11 @@ public class Gestionnaire {
 	
 	private String password;
 	
-	@Transient
+	@OneToOne(mappedBy = "gestionnaire")
 	private Ordinateur ordinateur;
+	
+	@OneToMany(mappedBy="gestionnaire")
+	private Set<Formation> formations;
 	
 	public Gestionnaire() {
 	}

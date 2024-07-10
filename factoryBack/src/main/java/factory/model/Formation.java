@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -22,11 +24,15 @@ public class Formation {
 	@Column(name = "finFormation")
 	private LocalDate fin;
 	private String prerequis;
-	@Transient
+	
+	
+	@OneToMany(mappedBy="formation")
 	private Set<Stagiaire> stagiaires;
+	
 	@Transient
 	private Set<Bloc> blocs;
-	@Transient
+	
+	@ManyToOne
 	private Gestionnaire gestionnaire;
 	
 	public Formation() {

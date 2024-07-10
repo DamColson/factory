@@ -6,8 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "salle")
@@ -19,9 +20,14 @@ public class Salle {
 	private String libelle;
 	
 	private Integer superficie;
-	@Transient
+	
+	@OneToMany(mappedBy="emplacement")
 	private Set<Ordinateur> ordinateurs;
-	@Transient
+	
+	@OneToMany(mappedBy="salle")
+	private Set<Bloc> blocs;
+	
+	@OneToOne(mappedBy="emplacement")
 	private VideoProjecteur videoProjecteurs;
 	
 	public Salle() {
