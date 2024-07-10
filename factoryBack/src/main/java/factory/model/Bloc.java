@@ -1,14 +1,17 @@
 package factory.model;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "bloc")
@@ -29,13 +32,21 @@ public class Bloc {
 	
 	@ManyToOne
 	private Salle salle;
+	
+	@ManyToMany
+	@JoinTable(
+	name = "bloc_formation",
+	joinColumns = @JoinColumn(name = "bloc_id"),
+	inverseJoinColumns = @JoinColumn(name = "formation_id")
+	)
+	private Set<Formation> formations;
 
 	public Bloc() {
 
 	}
 
 	public Bloc(Integer id, LocalDate dateDebut, LocalDate dateFin, String code, String objectif, Formateur formateur,
-			Matiere matiere, Salle salle) {
+			Matiere matiere, Salle salle, Set<Formation> formations) {
 		this.id = id;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
@@ -44,6 +55,7 @@ public class Bloc {
 		this.formateur = formateur;
 		this.matiere = matiere;
 		this.salle = salle;
+		this.formations = formations;
 	}
 
 	public Integer getId() {
@@ -109,5 +121,15 @@ public class Bloc {
 	public void setSalle(Salle salle) {
 		this.salle = salle;
 	}
+
+	public Set<Formation> getFormations() {
+		return formations;
+	}
+
+	public void setFormations(Set<Formation> formations) {
+		this.formations = formations;
+	}
+	
+	
 	
 }

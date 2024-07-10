@@ -7,10 +7,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "formateur")
@@ -35,7 +35,7 @@ public class Formateur {
     @OneToOne(mappedBy="formateur")
     private VideoProjecteur emprunt;
     
-    @Transient
+    @ManyToMany(mappedBy = "formateurs")
     private Set<Competence> competences;
 
     public Formateur(){}
@@ -55,6 +55,7 @@ public class Formateur {
         this.competences = competences;
     }
 
+    
 
     public int getId() {
         return id;

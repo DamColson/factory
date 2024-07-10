@@ -32,15 +32,6 @@ public class VideoProjecteur {
 	public VideoProjecteur() {
 	}
 
-	public VideoProjecteur(String libelle, String adresseMac, String dateAchat, Salle emplacement, String status,
-			Integer id) {
-		this.libelle = libelle;
-		this.adresseMac = adresseMac;
-		this.dateAchat = dateAchat;
-		this.emplacement = emplacement;
-		this.status = status;
-		this.id = id;
-	}
 	
 	public VideoProjecteur(Integer id, String libelle, String adresseMac, String dateAchat, Salle emplacement,
 			Formateur formateur, String status) {

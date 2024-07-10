@@ -33,15 +33,6 @@ public class Salle {
 	public Salle() {
 	}
 
-	public Salle(String libelle, Integer id, Integer superficie, Set<Ordinateur> ordinateurs,
-			VideoProjecteur videoProjecteurs) {
-		this.libelle = libelle;
-		this.id = id;
-		this.superficie = superficie;
-		this.ordinateurs = ordinateurs;
-		this.videoProjecteurs = videoProjecteurs;
-	}
-
 	public Salle(Integer id, String libelle, Integer superficie, Set<Ordinateur> ordinateurs, Set<Bloc> blocs,
 			VideoProjecteur videoProjecteurs) {
 		super();

@@ -25,10 +25,6 @@ public class Technicien {
 
     public Technicien(){}
 
-    public int getId() {
-        return id;
-    }
-
     public Technicien(int id, String nom, String prenom, String telephone, String mail, String password,
             Ordinateur ordinateur) {
         this.id = id;
@@ -38,6 +34,10 @@ public class Technicien {
         this.mail = mail;
         this.password = password;
         this.ordinateur = ordinateur;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {

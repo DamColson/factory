@@ -6,9 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="matiere")
@@ -22,7 +22,7 @@ public class Matiere {
 	
 	private String contenu;
 	
-	@Transient
+	@ManyToMany(mappedBy = "matieres")
 	private Set<Competence> competences;
 	
 	@OneToMany(mappedBy="matiere")
@@ -30,15 +30,6 @@ public class Matiere {
 	
 	public Matiere() {
 	}
-
-	public Matiere(Integer id, String titre, String contenu, Set<Competence> competences) {
-		this.id = id;
-		this.titre = titre;
-		this.contenu = contenu;
-		this.competences = competences;
-	}
-
-	
 	
 	public Matiere(Integer id, String titre, String contenu, Set<Competence> competences, Set<Bloc> blocs) {
 		this.id = id;

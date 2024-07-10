@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -17,18 +20,24 @@ public class Competence {
 	private Integer id;
 	private String nom;
 	
-	@Transient
+	@ManyToMany
+	@JoinTable(
+	name = "comp_matiere",
+	joinColumns = @JoinColumn(name = "competence_id"),
+	inverseJoinColumns = @JoinColumn(name = "matiere_id")
+	)
 	private Set<Matiere> matieres;
-	@Transient
+	
+	@ManyToMany
+	@JoinTable(
+	name = "comp_formateur",
+	joinColumns = @JoinColumn(name = "competence_id"),
+	inverseJoinColumns = @JoinColumn(name = "formateur_id")
+	)
 	private Set<Formateur> formateurs;
 	
 	public Competence() {
 		
-	}
-	
-	public Competence(Integer id, String nom) {
-		this.id = id;
-		this.nom = nom;
 	}
 	
 	public Competence(Integer id, String nom, Set<Matiere> matieres, Set<Formateur> formateurs) {

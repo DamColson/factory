@@ -44,19 +44,6 @@ public class Ordinateur {
 	public Ordinateur() {
 	}
 
-	public Ordinateur(String libelle, String adresseMac, String dateAchat, Salle emplacement, String status, Integer id,
-			String os) {
-		this.libelle = libelle;
-		this.adresseMac = adresseMac;
-		this.dateAchat = dateAchat;
-		this.emplacement = emplacement;
-		this.status = status;
-		this.id = id;
-		this.os = os;
-	}
-
-	
-	
 	public Ordinateur(Integer id, String libelle, String adresseMac, String dateAchat, Salle emplacement, String status,
 			Formateur formateur, Stagiaire stagiaire, Gestionnaire gestionnaire, Technicien technicien, String os) {
 		super();
