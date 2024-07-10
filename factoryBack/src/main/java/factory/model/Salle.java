@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "salle")
@@ -16,7 +15,7 @@ public class Salle {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotBlank
+	
 	private String libelle;
 	
 	private Integer superficie;

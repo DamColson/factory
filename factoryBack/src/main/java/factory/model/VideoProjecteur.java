@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "videoProjecteur")
@@ -13,15 +12,15 @@ public class VideoProjecteur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotBlank
+	
 	private String libelle;
-	@NotBlank
+	
 	private String adresseMac;
-	@NotBlank
+	
 	private String dateAchat;
-	@NotBlank
+	
 	private Salle emplacement;
-	@NotBlank
+	
 	private String status;
 	
 	public VideoProjecteur() {
