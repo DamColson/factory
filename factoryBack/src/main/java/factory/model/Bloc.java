@@ -16,13 +16,9 @@ public class Bloc {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotBlank
 	private LocalDate dateDebut;
-	@NotBlank
 	private LocalDate dateFin;
-	@NotBlank
 	private String code;
-	@NotBlank
 	private String objectif;
 	@Transient
 	private Formateur formateur;

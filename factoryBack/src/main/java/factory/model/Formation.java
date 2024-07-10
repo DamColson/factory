@@ -18,13 +18,10 @@ public class Formation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotBlank
 	@Column(name = "debutFormation")
 	private LocalDate debut;
-	@NotBlank
 	@Column(name = "finFormation")
 	private LocalDate fin;
-	@NotBlank
 	private String prerequis;
 	@Transient
 	private Set<Stagiaire> stagiaires;
