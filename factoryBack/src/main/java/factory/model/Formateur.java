@@ -3,17 +3,34 @@ package factory.model;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotBlank;
+
 public class Formateur {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank
     private String nom;
+    @NotBlank
     private String prenom;
+    @NotBlank
     private String telephone;
+    @NotBlank
     private String mail;
+    @NotBlank
     private String password;
+    @Transient
     private Ordinateur ordinateur;
+    @Transient
     private List<Bloc> blocs;
+    @Transient
     private VideoProjecteur emprunt;
+    @Transient
     private Set<Competence> competences;
 
     public Formateur(){}

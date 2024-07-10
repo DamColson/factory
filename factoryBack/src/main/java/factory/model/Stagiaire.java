@@ -1,13 +1,27 @@
 package factory.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotBlank;
+
 public class Stagiaire {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank
     private String nom;
+    @NotBlank
     private String prenom;
+    @NotBlank
     private String telephone;
+    @NotBlank
     private String mail;
+    @NotBlank
     private String password;
+    @Transient
     private Ordinateur ordinateur;
     private Formation formation;
 
