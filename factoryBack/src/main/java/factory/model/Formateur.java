@@ -17,6 +17,22 @@ public class Formateur {
     private Set<Competence> competences;
 
     public Formateur(){}
+    
+
+    public Formateur(int id, String nom, String prenom, String telephone, String mail, String password,
+            Ordinateur ordinateur, List<Bloc> blocs, VideoProjecteur emprunt, Set<Competence> competences) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.mail = mail;
+        this.password = password;
+        this.ordinateur = ordinateur;
+        this.blocs = blocs;
+        this.emprunt = emprunt;
+        this.competences = competences;
+    }
+
 
     public int getId() {
         return id;

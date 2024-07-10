@@ -16,6 +16,17 @@ public class Technicien {
         return id;
     }
 
+    public Technicien(int id, String nom, String prenom, String telephone, String mail, String password,
+            Ordinateur ordinateur) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.mail = mail;
+        this.password = password;
+        this.ordinateur = ordinateur;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

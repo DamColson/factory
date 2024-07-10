@@ -13,6 +13,18 @@ public class Stagiaire {
 
     public Stagiaire(){}
 
+    public Stagiaire(int id, String nom, String prenom, String telephone, String mail, String password,
+            Ordinateur ordinateur, Formation formation) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.mail = mail;
+        this.password = password;
+        this.ordinateur = ordinateur;
+        this.formation = formation;
+    }
+
     public int getId() {
         return id;
     }
