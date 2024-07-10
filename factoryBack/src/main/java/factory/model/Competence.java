@@ -1,10 +1,13 @@
 package factory.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "competence")
@@ -13,6 +16,11 @@ public class Competence {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
+	
+	@Transient
+	private Set<Matiere> matieres;
+	@Transient
+	private Set<Formateur> formateurs;
 	
 	public Competence() {
 		
